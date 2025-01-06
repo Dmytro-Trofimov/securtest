@@ -38,12 +38,12 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 	private Optional<String> extractTokenFromRequest(HttpServletRequest request) {
 		var token = request.getHeader("Authorization");
 		if (StringUtils.hasText(token) && token.startsWith("Bearer ")) {
-			System.out.println("filter for lol succes");
+			System.out.println("filter for bearer succes");
 			System.out.println(token);
 			return Optional.of(token.substring(7));
 		}
 		System.out.println(token);
-		System.out.println("filter for lol error");
+		System.out.println("filter for bearer error");
 		return Optional.empty();
 	}
 
