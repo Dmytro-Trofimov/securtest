@@ -16,6 +16,11 @@ public class MController {
 	}
 	@GetMapping("/secured")
 	public String authTest(@AuthenticationPrincipal UserPrincipal principal) { 
-		return principal.getUserId()+principal.getEmail()+principal.getPassword();
+		return "secuder ID: "+principal.getUserId()+principal.getEmail();
+	}
+	
+	@GetMapping("/admin")
+	public String adminendpoint(@AuthenticationPrincipal UserPrincipal principal) {
+		return "you are an admin";
 	}
 }
